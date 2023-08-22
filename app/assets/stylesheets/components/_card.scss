@@ -1,0 +1,29 @@
+.grid-jets {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.image-container {
+  width: 100%; /* You can set the width of the container */
+  height: 30rem; /* You can set the height of the container */
+  overflow: hidden; /* Hide any overflow of the image */
+  border-radius: 1rem;
+
+  img {
+    width: 100%; /* Make the image take the full width of the container */
+    height: 100%; /* Make the image take the full height of the container */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    border-radius: 1rem;
+  }
+
+  h5 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+  }
+
+  p {
+    font-family: 'Raleway', sans-serif;
+    margin: 0 auto;
+  }
+}

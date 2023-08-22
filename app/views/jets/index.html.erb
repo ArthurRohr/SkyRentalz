@@ -1,8 +1,22 @@
-<div class="card">
-  <ul>
-    <% @jets.each do |jet| %>
-    <li><%= jet.name %></li>
-    <% end %>
-  </ul>
-  <h1>Jet</h1>
+<div class="container grid-jets my-5">
+  <% @jets.each do |jet| %>
+    <div class="card border border-0 image-container" style="width: 20rem;">
+      <% jet.photos.each do |photo| %>
+          <%= cl_image_tag photo.key %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= jet.name %></h5>
+        <p class="card-text"><%= jet.model %></p>
+      </div>
+      <div class="container mx-1">
+        <p class="list-group-item"><strong>Location:</strong> <%= jet.location %></p>
+        <p class="list-group-item"><strong>Type:</strong> <%= jet.jetType %></p>
+        <p class="list-group-item mt-2"><strong>€ <%= jet.price %></strong> day</p>
+      </div>
+      <%# <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div> %>
+    </div>
+  <% end %>
 </div>

@@ -1,1 +1,10 @@
-// Specific CSS for your home-page
+// Specific CSS for your home-page.
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 3rem;
+}
