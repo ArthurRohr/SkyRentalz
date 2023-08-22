@@ -1,0 +1,88 @@
+.carrousel {
+  position: relative;
+  height:80vh;
+  width: 100%;
+  overflow: hidden;
+
+  img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+    top: -10rem;
+    filter: brightness(60%);
+  }
+
+  .text-1 {
+    font-family: "Raleway";
+    position: absoulte;
+    bottom: -33rem;
+
+    h3 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-shadow: 2px 2px 4px black;
+    }
+  }
+
+    .text1 {
+    font-family: "Raleway";
+    position: absoulte;
+    bottom: -35rem;
+
+    h3 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-shadow: 2px 2px 4px black;
+    }
+  }
+
+  .text2 {
+    font-family: "Raleway";
+    position: absoulte;
+    bottom: -15rem;
+
+    h3 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-shadow: 2px 2px 4px black;
+    }
+  }
+
+  .text3 {
+    font-family: "Raleway";
+    position: absoulte;
+    bottom: -20rem;
+    right: 12rem;
+
+    h3 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-shadow: 2px 2px 4px black;
+    }
+  }
+}

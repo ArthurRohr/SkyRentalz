@@ -1,12 +1,26 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #1B263B;
+  box-shadow: 0 2px 4px rgba($color: #000000, $alpha: 0.5);
+  transition: 0.8 ease;
+
+  a {
+    font-family: "Raleway";
+    color: white;
+    transition: 0.8 ease;
+  }
+
+  a:hover {
+    color: #FFC300;
+    transition: 0.8 ease;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  background: #1B263B;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 10rem;
 }
