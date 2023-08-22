@@ -1,0 +1,15 @@
+.carrousel {
+  position: relative;
+  height:80vh;
+  width: 100%;
+  overflow: hidden;
+
+  img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+    top: -10rem;
+    filter: brightness(60%);
+  }
+}
