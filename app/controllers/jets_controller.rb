@@ -26,5 +26,4 @@ class JetsController < ApplicationController
   def jet_params
     params.require(:jet).permit(:name, :model, :capacity, :jetType, :location, :price, photos: [])
   end
-
 end
