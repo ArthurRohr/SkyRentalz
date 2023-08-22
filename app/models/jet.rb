@@ -3,4 +3,6 @@ class Jet < ApplicationRecord
   has_many :users, through: :bookings
 
   validates :name, :model, :type, :capacity, :price, :location, presence: true
+
+  has_many_attached :photos
 end
