@@ -1,0 +1,23 @@
+<div class="container">
+<h1>Jet Details</h1>
+
+
+<% @jet.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
+
+<label for="name">Name: </label>
+<%= @jet.name %>
+<label for="model">Model: </label>
+<%= @jet.model %>
+<label for="jetType">Jet Type: </label>
+<%= @jet.jetType %>
+<label for="capacity">Capacity: </label>
+<%= @jet.capacity %>
+<label for="price">Price: </label>
+<%= @jet.price %>
+<label for="location">Location: </label>
+<%= @jet.location %>
+
+</div>
