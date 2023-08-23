@@ -43,3 +43,34 @@
     padding: 0;
   }
 }
+
+
+.card-user-jet {
+  width: 70%; /* You can set the width of the container */
+  height: 7rem; /* You can set the height of the container */
+  overflow: hidden; /* Hide any overflow of the image */
+  border-radius: 1rem;
+
+  img {
+    width: 100%; /* Make the image take the full width of the container */
+    height: 100%; /* Make the image take the full height of the container */
+    border-radius: 1rem;
+  }
+
+  h5 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+  }
+
+  p {
+    font-family: 'Raleway', sans-serif;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+.card-booking {
+  width: 70%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
