@@ -5,16 +5,18 @@ footer {
   color: white;
   position: absolute;
   left: 0; right: 0; bottom: 0;
+  transition: 0.8 ease;
 
   p {
     font-family: "Raleway";
-    margin-right: 2rem;
-    margin-top: 0.5rem;
+    margin: 0 3rem;
+    margin-top: 1rem;
     transition: 0.8 ease;
   }
 
   p:hover {
     color: #FFC300;
     transition: 0.8 ease;
+    cursor: pointer;
   }
 }
