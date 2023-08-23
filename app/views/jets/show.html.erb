@@ -1,23 +1,32 @@
-<div class="container">
-<h1>Jet Details</h1>
+<div class="container detail-container">
+<h1><%= @jet.name %></h1>
 
+<div class="jet-detail-image">
+  <% @jet.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 500, width: 800, crop: :fill %>
+  <% end %>
+</div>
 
-<% @jet.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<div class="jet-detail-information">
+  <label for="name"><strong>Name: </strong></label>
+  <%= @jet.name %>
+  <br>
+  <label for="model"><strong>Model: </strong></label>
+  <%= @jet.model %>
+  <br>
+  <label for="jetType"><strong>Jet Type: </strong></label>
+  <%= @jet.jetType %>
+  <br>
+  <label for="capacity"><strong>Capacity: </strong></label>
+  <%= @jet.capacity %>
+  <br>
+  <label for="price"><strong>Price: </strong>€</label>
+  <%= @jet.price %>
+  <br>
+  <label for="location"><strong>Location: </strong></label>
+  <%= @jet.location %>
+</div>
 
-
-<label for="name">Name: </label>
-<%= @jet.name %>
-<label for="model">Model: </label>
-<%= @jet.model %>
-<label for="jetType">Jet Type: </label>
-<%= @jet.jetType %>
-<label for="capacity">Capacity: </label>
-<%= @jet.capacity %>
-<label for="price">Price: </label>
-<%= @jet.price %>
-<label for="location">Location: </label>
-<%= @jet.location %>
+<%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>
 
 </div>
