@@ -1,2 +1,3 @@
 class JetsController < ApplicationController
+  
 end
