@@ -10,6 +10,8 @@
 <li><%= book.jet.price%></li>
 <li><%= book.jet.location%></li>
 <%= link_to "Cancel", booking_path(book), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+<%= link_to "Show Details", booking_path(book) %>
+
 <% end %>
 </div>
 </ul>
