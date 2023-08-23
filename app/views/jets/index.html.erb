@@ -2,15 +2,15 @@
   <% @jets.each do |jet| %>
     <div class="card border border-0 image-container" style="width: 20rem;">
       <% jet.photos.each do |photo| %>
+        <a href= <%= jet_path(jet) %> >
           <%= cl_image_tag photo.key %>
+        </a>
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= jet.name %></h5>
-        <p class="card-text"><%= jet.model %></p>
-      </div>
-      <div class="container mx-1">
-        <p class="list-group-item"><strong>Location:</strong> <%= jet.location %></p>
-        <p class="list-group-item"><strong>Type:</strong> <%= jet.jetType %></p>
+        <p class="card-text"><strong>Model:</strong> <%= jet.model %></p>
+        <p class="list-group-item" style="color: gray;"><strong>Location:</strong> <%= jet.location %></p>
+        <p class="list-group-item" style="color: gray;"><strong>Type:</strong> <%= jet.jetType %></p>
         <p class="list-group-item mt-2"><strong>€ <%= jet.price %></strong> day</p>
       </div>
       <%# <div class="card-body">
