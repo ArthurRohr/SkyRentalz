@@ -1,0 +1,18 @@
+<div class="container">
+<h1>Bookings Details</h1>
+
+<ul>
+<% current_user.bookings.each do |book| %>
+<div class="card">
+<li><%= book.check_in %></li>
+<li><%= book.check_out %></li>
+<li><%= book.jet.name%></li>
+<li><%= book.jet.price%></li>
+<li><%= book.jet.location%></li>
+<%= link_to "Cancel", booking_path(book), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+<%= link_to "Show Details", booking_path(book) %>
+
+<% end %>
+</div>
+</ul>
+</div>

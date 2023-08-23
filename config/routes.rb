@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :jets do
     resources :reviews
+    resources :bookings, only: [:new, :create]
   end
-  resources :bookings
+  resources :bookings, only: [:show, :destroy, :index]
+
+  get '/my_jets', to: 'jets#my_jets'
 end

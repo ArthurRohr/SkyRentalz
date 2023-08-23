@@ -1,1 +1,30 @@
-// Specific CSS for your home-page
+// Specific CSS for your home-page.
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.feature-section {
+  width: 100%;
+  height: 15rem;
+  background: #1B263B;
+  padding-top: 3rem;
+
+  img {
+    width: 15rem;
+    margin: 0 2rem;
+  }
+
+  p {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+  }
+}

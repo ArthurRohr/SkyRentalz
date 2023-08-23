@@ -1,0 +1,16 @@
+<div class="container">
+<h1>Booking Details</h1>
+
+<ul>
+<div class="card">
+<li><%= @booking.user.first_name %></li>
+<li><%= @booking.user.last_name %></li>
+<li><%= @booking.check_in %></li>
+<li><%= @booking.check_out %></li>
+<li><%= @booking.jet.name%></li>
+<li><%= @booking.jet.price%></li>
+<li><%= @booking.jet.location%></li>
+<%= link_to "Cancel", booking_path, data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+</div>
+</ul>
+</div>

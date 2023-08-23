@@ -1,0 +1,11 @@
+<h1>create a jet</h1>
+<%= simple_form_for(@jet) do |f| %>
+  <%= f.input :name%>
+  <%= f.input :model%>
+  <%= f.input :jetType%>
+  <%= f.input :capacity%>
+  <%= f.input :price%>
+  <%= f.input :location%>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit %>
+<% end %>

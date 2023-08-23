@@ -1,0 +1,22 @@
+footer {
+  width: 100%;
+  height: 3rem;
+  background-color: #1B263B;
+  color: white;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  transition: 0.8 ease;
+
+  p {
+    font-family: "Raleway";
+    margin: 0 3rem;
+    margin-top: 1rem;
+    transition: 0.8 ease;
+  }
+
+  p:hover {
+    color: #FFC300;
+    transition: 0.8 ease;
+    cursor: pointer;
+  }
+}

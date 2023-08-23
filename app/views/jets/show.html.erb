@@ -1,0 +1,32 @@
+<div class="container detail-container">
+<h1><%= @jet.name %></h1>
+
+<div class="jet-detail-image">
+  <% @jet.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 500, width: 800, crop: :fill %>
+  <% end %>
+</div>
+
+<div class="jet-detail-information">
+  <label for="name"><strong>Name: </strong></label>
+  <%= @jet.name %>
+  <br>
+  <label for="model"><strong>Model: </strong></label>
+  <%= @jet.model %>
+  <br>
+  <label for="jetType"><strong>Jet Type: </strong></label>
+  <%= @jet.jetType %>
+  <br>
+  <label for="capacity"><strong>Capacity: </strong></label>
+  <%= @jet.capacity %>
+  <br>
+  <label for="price"><strong>Price: </strong>€</label>
+  <%= @jet.price %>
+  <br>
+  <label for="location"><strong>Location: </strong></label>
+  <%= @jet.location %>
+</div>
+
+<%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>
+
+</div>
