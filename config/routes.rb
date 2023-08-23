@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:show, :destroy, :index]
+
+  get '/my_jets', to: 'jets#my_jets'
 end

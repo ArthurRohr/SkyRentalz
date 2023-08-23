@@ -3,6 +3,10 @@ class JetsController < ApplicationController
     @jets = Jet.all
   end
 
+  def my_jets
+    @jets = current_user.owned_jets
+  end
+
   def show
     @jet = Jet.find(params[:id])
   end
