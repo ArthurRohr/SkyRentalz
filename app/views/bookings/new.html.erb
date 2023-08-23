@@ -1,6 +1,10 @@
 <h1>create a booking</h1>
 <%= simple_form_for([@jet, @booking]) do |f| %>
-  <%= f.input :check_in %>
-  <%= f.input :check_out%>
-  <%= f.submit %>
+  <%= f.input :check_in,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+<%= f.input :check_out,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+<%= f.submit %>
 <% end %>

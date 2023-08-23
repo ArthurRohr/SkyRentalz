@@ -32,11 +32,8 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
     flash[:notice] = "Booking successfully deleted"
-    redirect_to booking_path(current_user)
+    redirect_to bookings_path(current_user)
   end
-
-
-
 
   private
 
