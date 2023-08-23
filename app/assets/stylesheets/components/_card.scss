@@ -1,7 +1,17 @@
 .grid-jets {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.grid-home-jets {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5rem;
+  align-items: center;
+  justify-items: center;
 }
 
 .image-container {
