@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :bookings, only: [:show, :destroy, :index]
 
   get '/my_jets', to: 'jets#my_jets'
+  get '/dashboard', to: 'dashboard#dashboard'
 end
