@@ -1,12 +1,13 @@
 class JetsController < ApplicationController
-  
+
   def index
     @jets = Jet.all
     @markers = @jets.geocoded.map do |jet|
       {
         lat: jet.latitude,
         lng: jet.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { jet: jet })
+        info_window_html: render_to_string(partial: "info_window", locals: { jet: jet }),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
