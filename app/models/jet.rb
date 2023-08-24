@@ -9,4 +9,6 @@ class Jet < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   has_many_attached :photos
+
+  JETTYPES = ["Turboprop Aircraft", "Helicopter", "Piston Aircraft", "Jets", "Light Jets", "Mid-Size Jets", "Federline Aircraft", "Short-Haul Aircraft", "Water Bomber", "Maritime Patrol"]
 end
