@@ -20,7 +20,8 @@ class JetsController < ApplicationController
     @jet = Jet.find(params[:id])
     @markers = [{
       lat: @jet.latitude,
-      lng: @jet.longitude
+      lng: @jet.longitude,
+      marker_html: render_to_string(partial: "marker")
       }]
   end
 
@@ -36,6 +37,16 @@ class JetsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @jet = Jet.find(params[:id])
+  end
+
+  def update
+    @jet = Jet.find(params[:id])
+    @jet.update(jet_params)
+    redirect_to jet_path(@jet)
   end
 
   private
