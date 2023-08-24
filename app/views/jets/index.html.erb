@@ -1,5 +1,18 @@
 <div class="d-flex">
   <div class="container grid-jets m-3">
+
+      <%= form_with url: jets_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :price,
+              params[:price],
+              class: "form-control",
+              placeholder: "Type a keyword"
+          %>
+        <%= submit_tag "Max price", name: "", class: "btn btn-primary" %>
+      <% end %>
+            <%= form_with url: jets_path, method: :get, class: "d-flex" do %>
+      <%= select_tag :select_type, options_for_select(Jet::JETTYPES) %>
+        <%= submit_tag "Jet type", name: "", class: "btn btn-primary" %>
+      <% end %>
     <% @jets.each do |jet| %>
       <div class="card border border-0 image-container" style="width: 20rem;">
         <% jet.photos.each do |photo| %>

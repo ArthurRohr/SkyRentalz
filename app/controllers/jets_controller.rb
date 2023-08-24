@@ -2,6 +2,17 @@ class JetsController < ApplicationController
 
   def index
     @jets = Jet.all
+    if params[:price].present?
+      sql_subquery = "price <= :price"
+      @jets = @jets.where(sql_subquery, price: params[:price])
+    end
+    if params[:select_type].present?
+      @jets = @jets.where(jetType: params[:select_type])
+    end
+
+    # if params[:query].present?
+      # @jets = @jets.where("jetType ILIKE ?", "%#{params[:query]}%")
+      # @jets = @jets.where(jetType: params[:query])
     @markers = @jets.geocoded.map do |jet|
       {
         lat: jet.latitude,
