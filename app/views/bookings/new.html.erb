@@ -1,12 +1,14 @@
-<h1>create a booking</h1>
-<div id="my-element" data-all-bookings = "<%= @bookings_all.to_json %>"></div>
-<%= simple_form_for([@jet, @booking]) do |f| %>
-  <%= f.input :check_in,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-<%= f.input :check_out,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-<%= f.submit %>
+<div class="container my-5 forms">
+  <h1>Create a booking</h1>
+  <div id="my-element" data-all-bookings = "<%= @bookings_all.to_json %>"></div>
+  <%= simple_form_for([@jet, @booking]) do |f| %>
+    <%= f.input :check_in,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :check_out,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+  <%= f.submit "Submit", class: "button-form" %>
 
-<% end %>
+  <% end %>
+</div>

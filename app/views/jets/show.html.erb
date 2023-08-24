@@ -1,39 +1,47 @@
 <div class="d-flex">
-  <div class="container detail-container">
+  <div class="container m-5 jet-title">
     <h1><%= @jet.name %></h1>
+    <p><%= @jet.model %></p>
 
-    <%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>
-
-    <div class="jet-detail-image">
+    <div class="jet-detail-image my-4">
       <% @jet.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 500, width: 800, crop: :fill %>
+        <%= cl_image_tag photo.key, crop: :fill %>
       <% end %>
     </div>
 
-    <div class="jet-detail-information">
-      <label for="name"><strong>Name: </strong></label>
-      <%= @jet.name %>
-      <br>
-      <label for="model"><strong>Model: </strong></label>
-      <%= @jet.model %>
-      <br>
-      <label for="jetType"><strong>Jet Type: </strong></label>
-      <%= @jet.jetType %>
-      <br>
-      <label for="capacity"><strong>Capacity: </strong></label>
-      <%= @jet.capacity %>
-      <br>
-      <label for="price"><strong>Price: </strong>€</label>
-      <%= @jet.price %>
-      <br>
-      <label for="location"><strong>Location: </strong></label>
-      <%= @jet.location %>
+    <div class="d-flex justify-content-center text-center my-4">
+      <div class="card rounded-4 mx-2 w-100 row align-items-center p-4 card-info">
+        <i class="fa-solid fa-plane col" style="color: #1B263B;"></i>
+        <p class="col"><strong>Jet Type</strong></p>
+        <p class="col"><%= @jet.jetType %></p>
+      </div>
+      <div class="card rounded-4 mx-2 w-100 row align-items-center p-4 card-info">
+        <i class="fa-solid fa-user-group col" style="color: #1B263B;"></i>
+        <p class="col"><strong>Capacity</strong></p>
+        <p class="col"><%= @jet.capacity %></p>
+      </div>
+      <div class="card rounded-4 mx-2 w-100 row align-items-center p-4 card-info">
+        <i class="fa-solid fa-money-bill-wave col" style="color: #1B263B;"></i>
+        <p class="col"><strong>Price</strong></p>
+        <p class="col">€ <%= @jet.price %></p>
+      </div>
+      <div class="card rounded-4 mx-2 w-100 row align-items-center p-4 card-info">
+        <i class="fa-solid fa-map-pin col" style="color: #1B263B;"></i>
+        <p class="col"><strong>Location</strong></p>
+        <p class="col"><%= @jet.location %></p>
+      </div>
     </div>
+
+    <%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>
   </div>
 
-  <div style="width: 100%; height: 100vh; position: sticky; top: 0; margin-top: 1rem; margin-right: 1rem;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="card rounded-5 card-details">
+    <div style="width: 90%; height: 50vh; margin: 5%;"
+    class="rounded-4"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
   </div>
 </div>
