@@ -3,7 +3,7 @@
   <%= simple_form_for(@jet) do |f| %>
     <%= f.input :name%>
     <%= f.input :model%>
-    <%= f.input :jetType%>
+    <%= f.input :jetType, as: :select, collection: Jet::JETTYPES, prompt: 'Select Jet Type', label: false %>
     <%= f.input :capacity%>
     <%= f.input :price%>
     <%= f.input :location%>
