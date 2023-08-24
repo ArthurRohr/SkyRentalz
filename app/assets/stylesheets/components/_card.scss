@@ -54,15 +54,13 @@
 
 
 .card-user-jet {
-  width: 70%; /* You can set the width of the container */
-  height: 7rem; /* You can set the height of the container */
+  width: 100%; /* You can set the width of the container */
+  height: 10rem; /* You can set the height of the container */
   overflow: hidden; /* Hide any overflow of the image */
-  border-radius: 1rem;
 
   img {
     width: 100%; /* Make the image take the full width of the container */
     height: 100%; /* Make the image take the full height of the container */
-    border-radius: 1rem;
   }
 
   h5 {
@@ -95,4 +93,9 @@
 
 .card-info {
   box-shadow: 0 0 8px rgba(0,0,0, 0.3);
+}
+.my-jets-container {
+  width: 70%;
+  box-shadow: 0 0 8px rgba(0,0,0, 0.3);
+  font-family: "Raleway";
 }

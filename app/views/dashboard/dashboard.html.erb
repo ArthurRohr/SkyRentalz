@@ -1,26 +1,70 @@
-<h2>My Jets</h2>
-<% @jets.each do |jet|  %>
-  <li><%= jet.name  %></li>
-  <li><%= jet.model %></li>
-  <li><%= jet.price %></li>
-  <li><%= jet.location %></li>
+<div class="container my-5 dashboard">
+  <div class="container d-flex justify-content-around">
+    <h2>My Jets</h2>
+    <%= link_to "Add a jet", new_jet_path, class: "btn rounded-3 button-form mb-4" %>
+  </div>
 
-  <% jet.bookings.each do |jetbooking| %>
-  <li>Booked by : <%= jetbooking.user.first_name.capitalize %></li>
-  <li>Booked from : <%= jetbooking.check_in %> Booked to : <%= jetbooking.check_out %></li>
-  <% end %>
-  <li>-----</li>
-<% end %>
+  <div class="container d-flex justify-content-center">
+    <% @jets.each do |jet|  %>
+      <div class="my-jets-container">
+        <div class="card card-user-jet">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <% jet.photos.each do |photo| %>
+                <a href= <%= jet_path(jet) %> >
+                  <%= cl_image_tag photo.key %>
+                </a>
+              <% end %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= jet.name  %></h5>
+                <p class="card-text"><strong>Model: </strong><%= jet.model %></p>
+                <p class="card-text"><strong>Location: </strong><%= jet.location %></p>
+                <p class="card-text"><strong>€ <%= jet.price %></strong> day</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button button-acc" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Bookings
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <% jet.bookings.each do |jetbooking| %>
+                  <div class="container py-3 border-bottom">
+                    <p><strong>Booked by: </strong> <%= jetbooking.user.first_name.capitalize %></p>
+                    <p><strong>Booked from: </strong> <%= jetbooking.check_in %> <strong> Booked to: </strong> <%= jetbooking.check_out %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<h2>Bookings</h2>
-<ul>
-<% @bookings.each do |booking| %>
-<li><%= booking.jet.name %></li>
-<li><%= booking.jet.model %></li>
-<li><%= booking.check_in %></li>
-<li><%= booking.check_out %></li>
-<li><%= booking.jet.location%></li>
-<li><%= booking.jet.price %></li>
-<li>--------</li>
-<% end %>
-</ul>
+  <div class="container d-flex justify-content-between m-4">
+    <h2 class="title-profile">Bookings</h2>
+  </div>
+
+  <div class="container d-flex justify-content-center">
+    <ul>
+    <% @bookings.each do |booking| %>
+    <li><%= booking.jet.name %></li>
+    <li><%= booking.jet.model %></li>
+    <li><%= booking.check_in %></li>
+    <li><%= booking.check_out %></li>
+    <li><%= booking.jet.location%></li>
+    <li><%= booking.jet.price %></li>
+    <li>--------</li>
+    <% end %>
+    </ul>
+  </div>
+
+</div>

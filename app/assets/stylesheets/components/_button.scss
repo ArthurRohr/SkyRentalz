@@ -33,8 +33,15 @@
   transition: 0.8s;
 
   &:hover {
+    background-color: transparent;
     border: 1px solid #1B263B;
     color: #1B263B;
     transition: 0.8s;
   }
+}
+
+.button-acc {
+  background-color: #1B263B;
+  color: #FFC300;
+  font-family: "Raleway";
 }
