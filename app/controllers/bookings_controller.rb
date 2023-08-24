@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @jet = Jet.find(params[:jet_id])
+    @bookings_all = Booking.where(jet_id: @jet)
   end
 
   def create
