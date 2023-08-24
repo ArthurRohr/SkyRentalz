@@ -1,0 +1,26 @@
+<h2>My Jets</h2>
+<% @jets.each do |jet|  %>
+  <li><%= jet.name  %></li>
+  <li><%= jet.model %></li>
+  <li><%= jet.price %></li>
+  <li><%= jet.location %></li>
+
+  <% jet.bookings.each do |jetbooking| %>
+  <li>Booked by : <%= jetbooking.user.first_name.capitalize %></li>
+  <li>Booked from : <%= jetbooking.check_in %> Booked to : <%= jetbooking.check_out %></li>
+  <% end %>
+  <li>-----</li>
+<% end %>
+
+<h2>Bookings</h2>
+<ul>
+<% @bookings.each do |booking| %>
+<li><%= booking.jet.name %></li>
+<li><%= booking.jet.model %></li>
+<li><%= booking.check_in %></li>
+<li><%= booking.check_out %></li>
+<li><%= booking.jet.location%></li>
+<li><%= booking.jet.price %></li>
+<li>--------</li>
+<% end %>
+</ul>
