@@ -1,18 +1,24 @@
 .jet-detail-image {
-  margin-top: 20px;
+  img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0, 0.3);
+  }
 }
 
-.jet-detail-information {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-}
+.jet-title {
+  font-family: "Raleway";
+  font-size: 1.5rem;
+  color: #1B263B;
 
-img {
-  border-radius: 10px;
-}
+  h1 {
+    font-size: 2rem;
+    color: #1B263B;
+    font-weight: 700;
+  }
 
-.detail-container {
-  margin-top: 35px;
-  margin-bottom: 35px;
+  p {
+    font-size: 1.2rem;
+    color: #1B263B;
+  }
 }
