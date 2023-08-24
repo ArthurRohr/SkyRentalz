@@ -20,7 +20,8 @@ class JetsController < ApplicationController
     @jet = Jet.find(params[:id])
     @markers = [{
       lat: @jet.latitude,
-      lng: @jet.longitude
+      lng: @jet.longitude,
+      marker_html: render_to_string(partial: "marker")
       }]
   end
 
