@@ -43,5 +43,18 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
+     <h4>Book this Jet</h4>
+        <div id="my-element" data-all-bookings = "<%= @bookings_all.to_json %>"></div>
+        <div style="width: 90%; height: 50vh; margin: 5%;">
+            <%= simple_form_for([@jet, @booking]) do |f| %>
+              <%= f.input :check_in,
+                        as: :string,
+                        input_html: { data: { controller: "datepicker" } } %>
+            <%= f.input :check_out,
+                        as: :string,
+                        input_html: { data: { controller: "datepicker" } } %>
+            <%= f.submit "Book", class: "button-form"%>
+            <% end %>
+    </div>
   </div>
 </div>
