@@ -1,6 +1,13 @@
 class JetsController < ApplicationController
   def index
     @jets = Jet.all
+    @markers = @jets.geocoded.map do |jet|
+      {
+        lat: jet.latitude,
+        lng: jet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { jet: jet })
+      }
+    end
   end
 
   def my_jets
@@ -9,6 +16,10 @@ class JetsController < ApplicationController
 
   def show
     @jet = Jet.find(params[:id])
+    @markers = [{
+      lat: @jet.latitude,
+      lng: @jet.longitude
+      }]
   end
 
   def new
