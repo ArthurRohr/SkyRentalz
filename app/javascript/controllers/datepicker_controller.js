@@ -12,7 +12,6 @@ export default class extends Controller {
 
           const bookingArray = JSON.parse(bookings);
           const bookingRange = bookingArray.some((item)=>{
-
             const checkIn = new Date(item.check_in)
             checkIn.setHours(0,0,0)
             const checkOut = new Date(item.check_out)
@@ -25,7 +24,7 @@ export default class extends Controller {
           if(bookingRange == true) {
               return true
           }
-          
+
 
        // Disable if the date is in the past
           const today = new Date();
