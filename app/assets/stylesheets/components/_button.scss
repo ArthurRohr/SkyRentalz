@@ -1,0 +1,40 @@
+.button-nav {
+  border: 1px solid #FFC300;
+  font-family: "Raleway";
+  color: white;
+  transition: 0.8s;
+
+  &:hover {
+    color: #FFC300;
+    transition: 0.8s;
+  }
+}
+
+.button-carousel {
+  background-color: #FFC300;
+  border: 1px solid #FFC300;
+  font-family: "Raleway";
+  font-weight: 500;
+  color: #1B263B;
+  transition: 0.8s;
+
+  &:hover {
+    border: 1px solid #FFC300;
+    color: #FFC300;
+    transition: 0.8s;
+  }
+}
+
+.button-form {
+  background-color: #1B263B;
+  border: 1px solid #1B263B;
+  color: #FFC300;
+  padding: 0.5rem 2rem;
+  transition: 0.8s;
+
+  &:hover {
+    border: 1px solid #1B263B;
+    color: #1B263B;
+    transition: 0.8s;
+  }
+}

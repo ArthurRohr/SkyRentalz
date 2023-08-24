@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "", class: "navbar-brand d-flex" do %>
+    <%= link_to "Sign in", class: "navbar-brand d-flex" do %>
       <%= image_tag "https://res.cloudinary.com/dgxfmpty5/image/upload/v1692710933/development/Untitled_design-2_njvcg4.png" %>
     <% end %>
 
@@ -18,14 +18,14 @@
             <%= link_to "Jets", jets_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign-up", new_user_registration_path, class: "nav-link" %>
+            <%= link_to "Sign-up", new_user_registration_path, class: "btn button-nav mx-2" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= content_tag :div, "Account", class: "dropdown-toggle btn button-nav mx-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end navbar-lewagon" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Sign-in", new_user_session_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "Login", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Profile", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <%# else %>

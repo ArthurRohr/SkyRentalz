@@ -30,15 +30,23 @@
     height: 100%; /* Make the image take the full height of the container */
     object-fit: cover; /* Maintain aspect ratio and cover the container */
     border-radius: 1rem;
+    transition: 0.8s;
+
+    &:hover {
+      filter: brightness(60%);
+      transition: 0.8s;
+    }
   }
 
   h5 {
     font-family: 'Raleway', sans-serif;
+    color: #1B263B;
     font-weight: 600;
   }
 
   p {
     font-family: 'Raleway', sans-serif;
+    color: #1B263B;
     margin: 0 auto;
     padding: 0;
   }
