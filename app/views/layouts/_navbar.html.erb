@@ -23,8 +23,8 @@
           <li class="nav-item dropdown">
             <%= content_tag :div, "Account", class: "dropdown-toggle btn button-nav mx-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end navbar-lewagon" aria-labelledby="navbarDropdown">
-              <%= link_to "Login", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Profile", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>

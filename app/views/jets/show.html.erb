@@ -1,38 +1,39 @@
-<div class="container detail-container">
-<h1><%= @jet.name %></h1>
+<div class="d-flex">
+  <div class="container detail-container">
+    <h1><%= @jet.name %></h1>
 
-<div class="jet-detail-image">
-  <% @jet.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 500, width: 800, crop: :fill %>
-  <% end %>
-</div>
+    <%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>
 
-<div class="jet-detail-information">
-  <label for="name"><strong>Name: </strong></label>
-  <%= @jet.name %>
-  <br>
-  <label for="model"><strong>Model: </strong></label>
-  <%= @jet.model %>
-  <br>
-  <label for="jetType"><strong>Jet Type: </strong></label>
-  <%= @jet.jetType %>
-  <br>
-  <label for="capacity"><strong>Capacity: </strong></label>
-  <%= @jet.capacity %>
-  <br>
-  <label for="price"><strong>Price: </strong>€</label>
-  <%= @jet.price %>
-  <br>
-  <label for="location"><strong>Location: </strong></label>
-  <%= @jet.location %>
-</div>
+    <div class="jet-detail-image">
+      <% @jet.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 500, width: 800, crop: :fill %>
+      <% end %>
+    </div>
 
-  <div style="width: 100%; height: 600px;"
+    <div class="jet-detail-information">
+      <label for="name"><strong>Name: </strong></label>
+      <%= @jet.name %>
+      <br>
+      <label for="model"><strong>Model: </strong></label>
+      <%= @jet.model %>
+      <br>
+      <label for="jetType"><strong>Jet Type: </strong></label>
+      <%= @jet.jetType %>
+      <br>
+      <label for="capacity"><strong>Capacity: </strong></label>
+      <%= @jet.capacity %>
+      <br>
+      <label for="price"><strong>Price: </strong>€</label>
+      <%= @jet.price %>
+      <br>
+      <label for="location"><strong>Location: </strong></label>
+      <%= @jet.location %>
+    </div>
+  </div>
+
+  <div style="width: 100%; height: 100vh; position: sticky; top: 0; margin-top: 1rem; margin-right: 1rem;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
-<%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>
-
 </div>
