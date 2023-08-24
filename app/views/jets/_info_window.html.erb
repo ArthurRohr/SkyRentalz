@@ -1,2 +1,2 @@
-
-<%= jet.name %>
+<%=link_to jet.name, jet_path(jet) %>
+<%= cl_image_tag jet.photos[0].key, width: 100, height: 75, crop: :fill %>
