@@ -27,6 +27,12 @@
   <%= @jet.location %>
 </div>
 
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
 <%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>
 
 </div>
