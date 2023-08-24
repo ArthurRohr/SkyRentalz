@@ -28,7 +28,11 @@ class JetsController < ApplicationController
   end
 
   def show
+
+    @booking = Booking.new
     @jet = Jet.find(params[:id])
+    @bookings_all = Booking.where(jet_id: @jet)
+    @booking = Booking.new
     @markers = [{
       lat: @jet.latitude,
       lng: @jet.longitude,
