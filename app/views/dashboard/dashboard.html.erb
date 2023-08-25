@@ -24,9 +24,18 @@
               <div class="card-body">
                 <div class="container d-flex justify-content-between">
                   <h5 class="card-title"><%= jet.name  %></h5>
-                  <a href= <%= edit_jet_path(jet) %> >
-                    <div class="btn button-form">Edit</div>
-                  </a>
+                  <div class="">
+                    <a href= <%= edit_jet_path(jet) %> >
+                      <div class="btn button-form">Edit</div>
+                    </a>
+                    <%# implement destroy button if the user are owner of this plane %>
+                    <%= link_to "",
+                      jet_path(jet),
+                      data:{turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                      class: "fa-solid fa-circle-xmark ms-3",
+                      style: "color: #1B263B; text-decoration: none; font-size: 1.2rem;"
+                    %>
+                  </div>
                 </div>
                 <div class="container">
                   <p class="card-text"><strong>Model: </strong><%= jet.model %></p>
@@ -57,8 +66,6 @@
             </div>
           </div>
         </div>
-            <%# implement destroy button if the user are owner of this plane %>
-        <%= link_to "Delete Jet", jet_path(jet), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
     <% end %>
   </div>
