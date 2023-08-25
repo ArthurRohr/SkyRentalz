@@ -40,6 +40,8 @@
         <p class="col"><%= @jet.location %></p>
       </div>
     </div>
+    <%# implement destroy button if the user are owner of this plane %>
+
 
     <!--<%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>-->
   </div>
@@ -62,6 +64,8 @@
           <%= f.input :check_out,
                       as: :string,
                       input_html: { data: { controller: "datepicker" } } %>
+                      <h3>Details :</h3><br>
+                      <h4><%=  %></h4>
           <%= f.submit "Book", class: "button-form"%>
       <% end %>
     </div>

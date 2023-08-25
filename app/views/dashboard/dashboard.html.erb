@@ -58,6 +58,8 @@
             </div>
           </div>
         </div>
+            <%# implement destroy button if the user are owner of this plane %>
+        <%= link_to "Delete Jet", jet_path(jet), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
     <% end %>
   </div>
