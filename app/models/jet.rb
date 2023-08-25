@@ -10,5 +10,5 @@ class Jet < ApplicationRecord
 
   has_many_attached :photos
 
-  JETTYPES = ["Turboprop Aircraft", "Helicopter", "Piston Aircraft", "Jets", "Light Jets", "Mid-Size Jets", "Federline Aircraft", "Short-Haul Aircraft", "Water Bomber", "Maritime Patrol"]
+  JETTYPES = ["Turboprop Aircraft", "Helicopter", "Piston Aircraft", "Jet", "Light Jet", "Mid-Size Jet", "Federline Aircraft", "Short-Haul Aircraft", "Water Bomber", "Maritime Patrol"]
 end

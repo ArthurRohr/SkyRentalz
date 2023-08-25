@@ -1,7 +1,9 @@
 <div class="container my-5 forms">
   <h1>Create a jet</h1>
+
   <%= simple_form_for(@jet) do |f| %>
+
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit "Submit", class: "button-form" %>
+    <%= f.submit "Add Photo", class: "button-form" %>
   <% end %>
 </div>

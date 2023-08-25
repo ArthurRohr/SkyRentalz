@@ -66,4 +66,9 @@
       <% end %>
     </div>
   </div>
+
+<% if @jet.user == current_user %>
+  <%= link_to 'Add Photo', edit_jet_path(@jet) %>
+<% end %>
+
 </div>
