@@ -15,11 +15,10 @@
         <div class="card card-user-jet">
           <div class="row g-0">
             <div class="col-md-4">
-              <% jet.photos.each do |photo| %>
-                <a href= <%= jet_path(jet) %> >
-                  <%= cl_image_tag photo.key %>
-                </a>
-              <% end %>
+              <% photo = jet.photos.first %>
+              <a href= <%= jet_path(jet) %> >
+                <%= cl_image_tag photo.key %>
+              </a>
             </div>
             <div class="col-md-8">
               <div class="card-body">
@@ -72,9 +71,8 @@
         <div class="card card-user-jet">
           <div class="row g-0">
             <div class="col-md-4">
-              <% booking.jet.photos.each do |photo| %>
-                <%= cl_image_tag photo.key %>
-              <% end %>
+              <% photo = booking.jet.photos.first %>
+              <%= cl_image_tag photo.key %>
             </div>
             <div class="col-md-8">
               <div class="card-body">

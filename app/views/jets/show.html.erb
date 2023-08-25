@@ -13,9 +13,43 @@
     <p><%= @jet.model %></p>
 
     <div class="jet-detail-image my-4">
-      <% @jet.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, crop: :fill %>
-      <% end %>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <% photo = @jet.photos.first %> <!-- Select the first photo from the collection -->
+            <%= cl_image_tag photo.key, crop: :fill %>
+          </div>
+          <% if @jet.photos[1] %>
+            <div class="carousel-item">
+              <% target_index = 1 %> <!-- Replace this with the index of the desired photo -->
+              <% photo = @jet.photos[1] %>
+              <%= cl_image_tag photo.key, crop: :fill %>
+            </div>
+          <% end %>
+          <% if @jet.photos[2] %>
+            <div class="carousel-item">
+              <% target_index = 2 %> <!-- Replace this with the index of the desired photo -->
+              <% photo = @jet.photos[2] %>
+              <%= cl_image_tag photo.key, crop: :fill %>
+            </div>
+          <% end %>
+          <% if @jet.photos[3] %>
+            <div class="carousel-item">
+              <% target_index = 3 %> <!-- Replace this with the index of the desired photo -->
+              <% photo = @jet.photos[3] %>
+              <%= cl_image_tag photo.key, crop: :fill %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
 
     <div class="d-flex justify-content-center text-center my-4">
@@ -42,6 +76,11 @@
     </div>
 
     <!--<%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>-->
+    <div class="container">
+      <% if @jet.user == current_user %>
+        <%= link_to 'Add Photo', edit_jet_path(@jet), class: "btn button-form" %>
+      <% end %>
+    </div>
   </div>
 
   <div class="card rounded-5 card-details">
@@ -66,9 +105,4 @@
       <% end %>
     </div>
   </div>
-
-<% if @jet.user == current_user %>
-  <%= link_to 'Add Photo', edit_jet_path(@jet) %>
-<% end %>
-
 </div>
