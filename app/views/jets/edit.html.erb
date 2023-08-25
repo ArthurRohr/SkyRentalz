@@ -1,9 +1,13 @@
 <div class="container my-5 forms">
-  <h1>Create a jet</h1>
+  <h1>Edit the Jet</h1>
 
   <%= simple_form_for(@jet) do |f| %>
-
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit "Add Photo", class: "button-form" %>
+    <%= f.input :jetType, as: :select, collection: Jet::JETTYPES, prompt: 'Select Jet Type', label: false %>
+    <%= f.input :name%>
+    <%= f.input :model%>
+    <%= f.input :capacity%>
+    <%= f.input :price%>
+    <%= f.input :location%>
+    <%= f.submit "Submit", class: "button-form" %>
   <% end %>
 </div>
