@@ -21,11 +21,53 @@
     <div class="container grid-jets m-3">
       <% @jets.each do |jet| %>
         <div class="card border border-0 image-container" style="width: 20rem;">
-          <% jet.photos.each do |photo| %>
-            <a href= <%= jet_path(jet) %> >
-              <%= cl_image_tag photo.key %>
-            </a>
-          <% end %>
+          <div class="image-container">
+              <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <a href= <%= jet_path(jet) %> >
+                      <% photo = jet.photos.first %> <!-- Select the first photo from the collection -->
+                      <%= cl_image_tag photo.key, crop: :fill %>
+                    </a>
+                  </div>
+                  <% if jet.photos[1] %>
+                    <div class="carousel-item">
+                      <% target_index = 1 %> <!-- Replace this with the index of the desired photo -->
+                      <a href= <%= jet_path(jet) %> >
+                        <% photo = jet.photos[1] %>
+                        <%= cl_image_tag photo.key, crop: :fill %>
+                      </a>
+                    </div>
+                  <% end %>
+                  <% if jet.photos[2] %>
+                    <div class="carousel-item">
+                      <% target_index = 2 %> <!-- Replace this with the index of the desired photo -->
+                      <a href= <%= jet_path(jet) %> >
+                        <% photo = jet.photos[2] %>
+                        <%= cl_image_tag photo.key, crop: :fill %>
+                      </a>
+                    </div>
+                  <% end %>
+                  <% if jet.photos[3] %>
+                    <div class="carousel-item">
+                      <% target_index = 3 %> <!-- Replace this with the index of the desired photo -->
+                      <a href= <%= jet_path(jet) %> >
+                        <% photo = jet.photos[3] %>
+                        <%= cl_image_tag photo.key, crop: :fill %>
+                      </a>
+                    </div>
+                  <% end %>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+          </div>
           <div class="card-body">
             <h5 class="card-title"><%= jet.name %></h5>
             <p class="card-text"><strong>Model:</strong> <%= jet.model %></p>
