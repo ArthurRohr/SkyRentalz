@@ -28,7 +28,6 @@ class JetsController < ApplicationController
   end
 
   def show
-
     @booking = Booking.new
     @jet = Jet.find(params[:id])
     @bookings_all = Booking.where(jet_id: @jet)
@@ -57,6 +56,17 @@ class JetsController < ApplicationController
   def edit
     @jet = Jet.find(params[:id])
   end
+
+  def destroy
+    @jet = Jet.find(params[:id])
+    # Disassociate the jet from the user
+    @jet.destroy
+    flash[:notice] = "Jet successfully deleted"
+    redirect_to jets_path
+  end
+
+
+
 
   def update
     @jet = Jet.find(params[:id])

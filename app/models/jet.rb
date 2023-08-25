@@ -1,7 +1,7 @@
 class Jet < ApplicationRecord
   belongs_to :user, dependent: :destroy
   has_many :users, through: :bookings
-  has_many :bookings
+  has_many :bookings , dependent: :destroy
 
   validates :name, :model, :jetType, :capacity, :price, :location, presence: true
 

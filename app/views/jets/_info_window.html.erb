@@ -1,2 +1,10 @@
+<%# <div class="container b-5">
 <%=link_to jet.name, jet_path(jet) %>
-<%= cl_image_tag jet.photos[0].key, width: 100, height: 75, crop: :fill %>
+<%= cl_image_tag jet.photos[0].key, width: 120, height: 100, crop: :fill %>
+
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('cl_image_tag jet.photos[0].key')">
+    <%=link_to jet.name, jet_path(jet) %>
+  </div>
+
+</div>
