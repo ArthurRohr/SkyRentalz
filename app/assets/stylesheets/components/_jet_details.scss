@@ -1,6 +1,10 @@
 .jet-detail-image {
+  height: 40rem;
+  overflow: hidden;
+
   img {
     width: 100%;
+    object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 0 8px rgba(0,0,0, 0.3);
   }
