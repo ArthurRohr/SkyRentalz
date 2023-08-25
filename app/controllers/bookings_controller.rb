@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
     @jet = Jet.find(params[:jet_id])
     @booking.jet = @jet
     if @booking.save
+      flash[:success] = "Booking was successfully created!"
       redirect_to jet_path(@jet)
     else
       render :new, status: :unprocessable_entity
@@ -34,7 +35,6 @@ class BookingsController < ApplicationController
     flash[:notice] = "Booking successfully deleted"
     redirect_to bookings_path(current_user)
   end
-
 
   private
 

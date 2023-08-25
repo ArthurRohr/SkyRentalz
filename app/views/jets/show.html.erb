@@ -1,3 +1,12 @@
+<div class="flash-message-container" >
+  <% if flash[:success] %>
+    <div class="alert alert-primary">
+      <%= flash[:success] %>
+      <button type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+  <% end %>
+</div>
+
 <div class="d-flex">
   <div class="container m-5 jet-title">
     <h1><%= @jet.name %></h1>
@@ -32,7 +41,7 @@
       </div>
     </div>
 
-    <%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>
+    <!--<%= link_to "Book your jet", new_jet_booking_path(@jet), class: "btn rounded-3 btn-primary" %>-->
   </div>
 
   <div class="card rounded-5 card-details">
@@ -43,18 +52,18 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
-     <h4>Book this Jet</h4>
-        <div id="my-element" data-all-bookings = "<%= @bookings_all.to_json %>"></div>
-        <div style="width: 90%; height: 50vh; margin: 5%;">
-            <%= simple_form_for([@jet, @booking]) do |f| %>
-              <%= f.input :check_in,
-                        as: :string,
-                        input_html: { data: { controller: "datepicker" } } %>
-            <%= f.input :check_out,
-                        as: :string,
-                        input_html: { data: { controller: "datepicker" } } %>
-            <%= f.submit "Book", class: "button-form"%>
-            <% end %>
+    <h4 class="ms-4 mb-0"><strong>Book this Jet</strong></h4>
+    <div id="my-element" data-all-bookings = "<%= @bookings_all.to_json %>"></div>
+    <div style="width: 90%; height: 50vh; margin: 5%;">
+      <%= simple_form_for([@jet, @booking]) do |f| %>
+          <%= f.input :check_in,
+                      as: :string,
+                      input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :check_out,
+                      as: :string,
+                      input_html: { data: { controller: "datepicker" } } %>
+          <%= f.submit "Book", class: "button-form"%>
+      <% end %>
     </div>
   </div>
 </div>
