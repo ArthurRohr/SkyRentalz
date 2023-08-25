@@ -1,12 +1,17 @@
 <div class="container my-5 dashboard">
-  <div class="container d-flex justify-content-around">
+  <div class="container d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <p style="font-size: 2rem;"><strong>Welcome</strong></p>
+      <span style="font-size: 1.2rem;"><%= current_user.first_name.capitalize %></span>
+      <span style="font-size: 1.2rem;"><%= current_user.last_name.capitalize %></span>
+    </div>
     <h2>My Jets</h2>
     <%= link_to "Add a jet", new_jet_path, class: "btn rounded-3 button-form mb-4" %>
   </div>
 
-  <div class="container d-flex justify-content-center">
+  <div class="container d-flex flex-column justify-content-center align-items-center">
     <% @jets.each do |jet|  %>
-      <div class="my-jets-container">
+      <div class="my-jets-container my-3">
         <div class="card card-user-jet">
           <div class="row g-0">
             <div class="col-md-4">
@@ -18,14 +23,22 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title"><%= jet.name  %></h5>
-                <p class="card-text"><strong>Model: </strong><%= jet.model %></p>
-                <p class="card-text"><strong>Location: </strong><%= jet.location %></p>
-                <p class="card-text"><strong>€ <%= jet.price %></strong> day</p>
+                <div class="container d-flex justify-content-between">
+                  <h5 class="card-title"><%= jet.name  %></h5>
+                  <a href= <%= edit_jet_path(jet) %> >
+                    <div class="btn button-form">Edit</div>
+                  </a>
+                </div>
+                <div class="container">
+                  <p class="card-text"><strong>Model: </strong><%= jet.model %></p>
+                  <p class="card-text"><strong>Location: </strong><%= jet.location %></p>
+                  <p class="card-text"><strong>€ <%= jet.price %></strong> day</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
         <div class="accordion">
           <div class="accordion-item">
             <h2 class="accordion-header">
@@ -49,22 +62,48 @@
     <% end %>
   </div>
 
-  <div class="container d-flex justify-content-between m-4">
-    <h2 class="title-profile">Bookings</h2>
+  <div class="container d-flex justify-content-center mb-4 mt-5">
+    <h2>My Bookings</h2>
   </div>
 
-  <div class="container d-flex justify-content-center">
-    <ul>
-    <% @bookings.each do |booking| %>
-    <li><%= booking.jet.name %></li>
-    <li><%= booking.jet.model %></li>
-    <li><%= booking.check_in %></li>
-    <li><%= booking.check_out %></li>
-    <li><%= booking.jet.location%></li>
-    <li><%= booking.jet.price %></li>
-    <li>--------</li>
+  <div class="container d-flex flex-column justify-content-center align-items-center">
+    <% @bookings.each do |booking|  %>
+      <div class="my-jets-container my-3">
+        <div class="card card-user-jet">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <% booking.jet.photos.each do |photo| %>
+                <%= cl_image_tag photo.key %>
+              <% end %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="container d-flex justify-content-between">
+                  <h5 class="card-title"><%= booking.jet.name  %></h5>
+                  <%= link_to "",
+                    booking_path(booking),
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                    class: "fa-solid fa-circle-xmark",
+                    style: "color: #1B263B; text-decoration: none; font-size: 1.2rem;"
+                  %>
+                </div>
+                <div class="container d-flex justify-content-center align-items-center">
+                  <div class="container">
+                    <p class="card-text"><strong>Model: </strong><%= booking.jet.model %></p>
+                    <p class="card-text"><strong>Location: </strong><%= booking.jet.location %></p>
+                  </div>
+                  <div class="container">
+                    <p class="card-text"><strong>€ <%= booking.jet.price %></strong> day</p>
+                    <p class="card-text"><strong>Check_in: </strong><%= booking.check_in %></p>
+                    <p class="card-text"><strong>Check_out: </strong><%= booking.check_out %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-    </ul>
   </div>
 
 </div>

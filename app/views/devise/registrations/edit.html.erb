@@ -2,6 +2,7 @@
 
 <div class="container p-2 w-100">
   <h1>My Jets</h1>
+
   <%= link_to "Add a jet", new_jet_path, class: "btn rounded-3 btn-primary mb-4" %>
     <% @user.jets.each do |jet| %>
     <div class="card mb-3 card-user-jet">

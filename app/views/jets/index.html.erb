@@ -1,39 +1,50 @@
 <div class="d-flex">
-  <div class="container grid-jets m-3">
 
-      <%= form_with url: jets_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :price,
-              params[:price],
-              class: "form-control",
-              placeholder: "Type a keyword"
-          %>
-        <%= submit_tag "Max price", name: "", class: "btn btn-primary" %>
-      <% end %>
-            <%= form_with url: jets_path, method: :get, class: "d-flex" do %>
+<div class="d-flex flex-column">
+  <div class="container d-flex justify-content-center">
+    <%= form_with url: jets_path, method: :get, class: "d-flex m-3" do %>
+      <%= text_field_tag :price,
+            params[:price],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Max price €", name: "", class: "btn button-form" %>
+    <% end %>
+
+    <%= form_with url: jets_path, method: :get, class: "d-flex m-3" do %>
       <%= select_tag :select_type, options_for_select(Jet::JETTYPES) %>
-        <%= submit_tag "Jet type", name: "", class: "btn btn-primary" %>
-      <% end %>
-    <% @jets.each do |jet| %>
-      <div class="card border border-0 image-container" style="width: 20rem;">
-        <% jet.photos.each do |photo| %>
-          <a href= <%= jet_path(jet) %> >
-            <%= cl_image_tag photo.key %>
-          </a>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= jet.name %></h5>
-          <p class="card-text"><strong>Model:</strong> <%= jet.model %></p>
-          <p class="list-group-item" style="color: gray;"><strong>Location:</strong> <%= jet.location %></p>
-          <p class="list-group-item" style="color: gray;"><strong>Type:</strong> <%= jet.jetType %></p>
-          <p class="list-group-item mt-2"><strong>€ <%= jet.price %></strong> day</p>
-        </div>
-      </div>
+      <%= submit_tag "Jet type", name: "", class: "btn button-form" %>
     <% end %>
   </div>
 
-  <div style="width: 100%; height: 100vh; position: sticky; top: 0; margin-top: 1rem; margin-right: 1rem;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="container">
+    <div class="container grid-jets m-3">
+      <% @jets.each do |jet| %>
+        <div class="card border border-0 image-container" style="width: 20rem;">
+          <% jet.photos.each do |photo| %>
+            <a href= <%= jet_path(jet) %> >
+              <%= cl_image_tag photo.key %>
+            </a>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= jet.name %></h5>
+            <p class="card-text"><strong>Model:</strong> <%= jet.model %></p>
+            <p class="list-group-item" style="color: gray;"><strong>Location:</strong> <%= jet.location %></p>
+            <p class="list-group-item" style="color: gray;"><strong>Type:</strong> <%= jet.jetType %></p>
+            <p class="list-group-item mt-2"><strong>€ <%= jet.price %></strong> day</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
+
+  <div class="container map">
+    <div style="width: 100%; height: 100vh; position: sticky; top: 0; margin-top: 1rem; margin-right: 1rem;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
 </div>
